@@ -15,27 +15,47 @@
 body{
     background-color: #FFF5E4;
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
-    flex-direction: column; /* Change the direction to column */
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Align items to the start of the container */
-    overflow: hidden;
-	color: #FF9494;
-	font-family: courier;
+    justify-content: space-between;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: #c83856;
+    font-family: 'Courier New', Courier, monospace;
+    padding-bottom: 20px;
 }
 
 #thankyou {
-    width: 100%; /* Ensure it spans the full width */
-    text-align: center; /* Keep the text centered */
-    margin-top: 20px; /* Add some space at the top */
-    z-index: 1000; /* Ensure it's above other elements if needed */
-    position: relative; /* Adjust based on layout needs */
-	margin-bottom: 400px;
-	font-size: 50px;
+    width: 100%;
+    text-align: center;
+    margin-top: 24px;
+    z-index: 1000;
+    position: relative;
+    margin-bottom: 30px;
+    font-size: clamp(22px, 5.5vw, 42px);
+    padding: 0 16px;
+    line-height: 1.35;
+    font-weight: bold;
 }
 
 .flower{
     position: relative;
+    margin: 0 auto 30px;
+    transform-origin: bottom center;
+}
+
+@media (max-width: 600px) {
+    .flower {
+        transform: scale(0.85);
+    }
+}
+
+@media (max-width: 400px) {
+    .flower {
+        transform: scale(0.75);
+    }
 }
 
 .flower__glass{

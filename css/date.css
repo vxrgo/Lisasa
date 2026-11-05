@@ -1,60 +1,98 @@
-body {
-  text-align: center;
-  margin-top: 30px;
-  font-family: "Courier";
-  background-color: #fff5e4;
-  color: #ff9494;
-  display: flex;
-  flex-direction: column;
-}
-h1 {
-  font-size: 40px;
+* {
+  box-sizing: border-box;
 }
 
-form .header {
-  width: 100%;
+body {
+  text-align: center;
+  margin: 0;
+  padding: 30px 16px;
+  font-family: "Courier New", Courier, monospace;
+  background-color: #fff5e4;
+  color: #c83856;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
-  font-size: 20px;
-  margin-bottom: 20px;
-  color: #ff9494;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: clamp(22px, 5.5vw, 40px);
+  margin-bottom: 24px;
+  line-height: 1.3;
+  padding: 0 10px;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  font-size: 25px;
+  font-size: clamp(16px, 4vw, 22px);
+  width: 100%;
+  max-width: 440px;
+  gap: 16px;
 }
 
-.button {
-  padding: 6px 10px;
-  font-size: 15px;
-  cursor: pointer;
-  margin: 10px;
-  font-family: "courier";
-  margin-bottom: 10px;
-  background-color: #ffe3e1;
-  color: #e67373;
-  border-radius: 12px;
-  border: 2px solid #ffe3e1;
-  transition: 0.3s;
+.form-group label {
+  color: #c83856;
+  font-weight: bold;
 }
 
-.button:hover {
-  background-color: #ff9494;
-  color: #ffe3e1;
-  border: 2px solid #ff9494;
+.date-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
 }
 
 input[type="date"] {
-  padding: 6px 10px;
-  font-size: 15px;
-  cursor: pointer;
-  margin: 10px;
-  font-family: "courier";
-  margin-bottom: 10px;
+  padding: 12px 20px;
+  font-size: 16px; /* 16px avoids auto-zoom on iOS Safari */
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
   background-color: #ffe3e1;
-  color: #e67373;
+  color: #a82b40;
   border-radius: 12px;
-  border: 2px solid #ffe3e1;
+  border: 2px solid #ffb3ba;
+  box-shadow: 0 4px 10px rgba(200, 56, 86, 0.12);
+  outline: none;
+  min-height: 48px;
+  width: 100%;
+  max-width: 260px;
+  text-align: center;
+}
+
+input[type="date"]:focus {
+  border-color: #c83856;
+  box-shadow: 0 0 0 3px rgba(200, 56, 86, 0.2);
+}
+
+.button {
+  padding: 12px 32px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Courier New", Courier, monospace;
+  background-color: #ffe3e1;
+  color: #a82b40;
+  border-radius: 12px;
+  border: 2px solid #ffb3ba;
+  box-shadow: 0 4px 12px rgba(200, 56, 86, 0.15);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  min-height: 48px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button:hover,
+.button:active {
+  background-color: #c83856;
+  color: #fff5e4;
+  border-color: #c83856;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(200, 56, 86, 0.25);
 }

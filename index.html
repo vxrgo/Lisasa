@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,12 +8,13 @@
   </head>
   <body>
     <div id="valentineQuestion"><b>lo mau jadi pacar guweh?</b></div>
-    <button class="answerButton" onclick="location.href='thankyou.html'">
-      mau
-    </button>
-    <button class="answerButton" id="noButton">ga dulu</button>
-    <br />
-    <img src="cat.gif" alt="cat asking question" class="responsive" />
+    <div class="button-container">
+      <button class="answerButton" onclick="location.href='thankyou.html'">
+        mau
+      </button>
+      <button class="answerButton" id="noButton">ga dulu</button>
+    </div>
+    <img src="cat.gif" alt="kucing nanya pertanyaan" class="responsive" />
 
     <script>
       document
@@ -25,7 +26,9 @@
           var currentFontSize = parseInt(
             window.getComputedStyle(yesButton).fontSize
           );
-          yesButton.style.fontSize = currentFontSize + 10 + "px"; // Increase font size by 5px
+          // Naikkan ukuran font tombol mau bertahap
+          yesButton.style.fontSize = Math.min(currentFontSize + 12, 60) + "px";
+          yesButton.style.padding = "16px 32px";
         });
     </script>
   </body>
