@@ -8,14 +8,25 @@
   </head>
   <body>
     <h1 title="pilih tanggal">Kira-kira kapan kamu bisa jalan?</h1>
-    <form class="form-group">
+    <form class="form-group" id="dateForm">
       <label>Mau hari apa nih: (pilih tanggal yaa)</label>
       <div class="date-input-wrapper">
-        <input type="date" required />
-        <button class="button" type="submit" formaction="food.html">
+        <input type="date" id="dateInput" required />
+        <button class="button" type="submit">
           Gass! 🚀
         </button>
       </div>
     </form>
+
+    <script>
+      document.getElementById("dateForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var dateVal = document.getElementById("dateInput").value;
+        if (dateVal) {
+          localStorage.setItem("kencan_date", dateVal);
+          window.location.href = "food.html";
+        }
+      });
+    </script>
   </body>
 </html>

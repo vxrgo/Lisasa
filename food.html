@@ -57,8 +57,32 @@
         <label><input type="checkbox" name="food" value="Sushi" /> Sushi</label>
       </div>
     </div>
-    <button class="button" onclick="location.href='dessert.html'">
+    <button class="button" onclick="nextStep()">
       Lanjut pilih dessert! 🍰
     </button>
+
+    <script>
+      function nextStep() {
+        var checked = Array.from(
+          document.querySelectorAll('input[name="food"]:checked')
+        ).map(function (el) {
+          return el.value;
+        });
+        localStorage.setItem(
+          "kencan_food",
+          JSON.stringify(checked.length ? checked : ["Bebas apa aja"])
+        );
+        window.location.href = "dessert.html";
+      }
+
+      document.querySelectorAll(".food-item").forEach(function (item) {
+        item.addEventListener("click", function (e) {
+          if (e.target.tagName !== "INPUT") {
+            var cb = item.querySelector('input[type="checkbox"]');
+            cb.checked = !cb.checked;
+          }
+        });
+      });
+    </script>
   </body>
 </html>

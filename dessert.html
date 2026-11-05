@@ -46,8 +46,32 @@
         >
       </div>
     </div>
-    <button class="button" onclick="location.href='activities.html'">
+    <button class="button" onclick="nextStep()">
       Lanjut aktivitas seru! 🎡
     </button>
+
+    <script>
+      function nextStep() {
+        var checked = Array.from(
+          document.querySelectorAll('input[name="dessert"]:checked')
+        ).map(function (el) {
+          return el.value;
+        });
+        localStorage.setItem(
+          "kencan_dessert",
+          JSON.stringify(checked.length ? checked : ["Bebas apa aja"])
+        );
+        window.location.href = "activities.html";
+      }
+
+      document.querySelectorAll(".dessert-item").forEach(function (item) {
+        item.addEventListener("click", function (e) {
+          if (e.target.tagName !== "INPUT") {
+            var cb = item.querySelector('input[type="checkbox"]');
+            cb.checked = !cb.checked;
+          }
+        });
+      });
+    </script>
   </body>
 </html>

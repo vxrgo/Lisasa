@@ -70,8 +70,66 @@
         >
       </div>
     </div>
-    <button class="button" onclick="location.href='lastpage.html'">
+    <button class="button" id="submitBtn" onclick="submitAndNext()">
       Buka pesan terakhir ✨
     </button>
+
+    <script>
+      var WEBHOOK_URL =
+        "https://script.google.com/macros/s/AKfycbwNSrCAQBQLMvWmr0bh7TC6dBA073PkIP7jtaD6F1zaJ5fZNC4L4oqOdpgLZFxixiA/exec";
+
+      async function submitAndNext() {
+        var btn = document.getElementById("submitBtn");
+        btn.innerText = "Mengirim...";
+        btn.disabled = true;
+
+        var checked = Array.from(
+          document.querySelectorAll('input[name="activities"]:checked')
+        ).map(function (el) {
+          return el.value;
+        });
+        var activities = checked.length ? checked : ["Bebas apa aja"];
+        localStorage.setItem("kencan_activities", JSON.stringify(activities));
+
+        var date = localStorage.getItem("kencan_date") || "Belum dipilih";
+        var food = JSON.parse(
+          localStorage.getItem("kencan_food") || '["Bebas apa aja"]'
+        );
+        var dessert = JSON.parse(
+          localStorage.getItem("kencan_dessert") || '["Bebas apa aja"]'
+        );
+
+        var payload = {
+          date: date,
+          food: food,
+          dessert: dessert,
+          activities: activities
+        };
+
+        try {
+          await fetch(WEBHOOK_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+        } catch (err) {
+          console.error("Gagal kirim webhook:", err);
+        }
+
+        window.location.href = "lastpage.html";
+      }
+
+      document.querySelectorAll(".activity-item").forEach(function (item) {
+        item.addEventListener("click", function (e) {
+          if (e.target.tagName !== "INPUT") {
+            var cb = item.querySelector('input[type="checkbox"]');
+            cb.checked = !cb.checked;
+          }
+        });
+      });
+    </script>
   </body>
 </html>
