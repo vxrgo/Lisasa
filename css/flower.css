@@ -1,3 +1,4 @@
+html, body { width: 100%; max-width: 100vw; overflow-x: hidden; }
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap');
 
 *,
@@ -21,40 +22,70 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     overflow-x: hidden;
     overflow-y: auto;
     color: #c83856;
     font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-weight: 600;
-    padding-bottom: 20px;
+    padding: 24px 20px 48px;
+    box-sizing: border-box;
 }
 
 #thankyou {
     width: 100%;
     text-align: center;
-    margin-top: 24px;
-    z-index: 1000;
+    margin: 8px 0 20px;
+    z-index: 10;
     position: relative;
-    margin-bottom: 20px;
-    font-size: clamp(22px, 5.5vw, 42px);
     padding: 0 16px;
+    box-sizing: border-box;
+}
+
+#thankyou h1 {
+    font-size: clamp(20px, 4vw, 36px);
     line-height: 1.35;
-    font-weight: bold;
+    font-weight: 700;
+    color: #c83856;
+    margin: 0 auto;
+    max-width: 900px;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.celebration-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    width: 100%;
+    max-width: 1060px;
+    margin: 0 auto;
+    position: relative;
+    flex-grow: 1;
+}
+
+.ticket-section {
+    flex: 0 1 430px;
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    justify-content: center;
+    z-index: 5;
 }
 
 .ticket-card {
     background: #ffffff;
     border: 2px dashed #ffb3ba;
-    border-radius: 18px;
-    padding: 20px 24px;
-    width: 90%;
-    max-width: 440px;
-    margin: 0 auto 30px;
-    z-index: 1000;
+    border-radius: 20px;
+    padding: 22px 24px;
+    width: 100%;
+    margin: 0;
     position: relative;
-    box-shadow: 0 8px 24px rgba(200, 56, 86, 0.12);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     text-align: left;
+    box-sizing: border-box;
 }
 
 .ticket-header {
@@ -131,9 +162,9 @@ body{
     background-color: #075e54;
     color: #ffffff;
     border: none;
-    padding: 14px 22px;
+    padding: 13px 18px;
     border-radius: 12px;
-    font-size: 15px;
+    font-size: 14.5px;
     font-weight: 700;
     font-family: inherit;
     cursor: pointer;
@@ -144,6 +175,9 @@ body{
     justify-content: center;
     gap: 8px;
     width: 100%;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.35;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
 }
@@ -155,31 +189,144 @@ body{
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
 }
 
+.flower-section {
+    flex: 0 1 450px;
+    width: 100%;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.flower-dedication {
+    font-size: 16px;
+    font-weight: 700;
+    color: #a82b40;
+    margin-bottom: 36px;
+    letter-spacing: 0.3px;
+    text-align: center;
+}
+
+.flower-stage {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
 .flower{
     position: relative;
-    margin: 0 auto 30px;
+    transform: scale(0.65);
     transform-origin: bottom center;
+    margin-bottom: 10px;
 }
 
-@media (max-width: 600px) {
-    .ticket-card {
-        padding: 16px 18px;
-        margin-bottom: 16px;
+@media (max-width: 860px) {
+    body {
+        padding: 20px 14px 44px;
+        justify-content: flex-start;
     }
+    
+    .celebration-container {
+        flex-direction: column;
+        gap: 36px;
+    }
+
+    .ticket-section {
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .flower-section {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .flower-dedication {
+        margin-bottom: 24px;
+        font-size: 15px;
+    }
+
+    .flower-stage {
+        height: 340px;
+    }
+
     .flower {
-        transform: scale(0.65);
-        margin-top: -15px;
+        transform: scale(0.82);
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 16px 16px 36px;
+    }
+
+    #thankyou {
+        margin: 4px 0 16px;
+        padding: 0 8px;
+    }
+
+    #thankyou h1 {
+        font-size: clamp(17px, 5.2vw, 24px);
+        line-height: 1.35;
+    }
+
+    .ticket-section {
+        max-width: 360px;
+    }
+
+    .ticket-card {
+        padding: 18px 16px;
+        border-radius: 16px;
+    }
+
+    .ticket-header {
+        font-size: 13px;
+        letter-spacing: 1.5px;
+        padding-bottom: 10px;
+        margin-bottom: 14px;
+    }
+
+    .ticket-row {
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+    .ticket-label {
+        font-size: 12px;
+    }
+
+    .ticket-value {
+        font-size: 14px;
+    }
+
+    .wa-button {
+        font-size: 13.5px;
+        padding: 12px 14px;
+        gap: 6px;
+    }
+
+    .edit-ticket-btn {
+        font-size: 13px;
+        padding: 9px 14px;
+    }
+
+    .flower-dedication {
         margin-bottom: 20px;
+        font-size: 14px;
     }
-}
 
-@media (max-width: 400px) {
-    .ticket-card {
-        padding: 14px 16px;
+    .flower-stage {
+        height: 300px;
     }
+
     .flower {
-        transform: scale(0.55);
-        margin-top: -25px;
+        transform: scale(0.76);
         margin-bottom: 10px;
     }
 }

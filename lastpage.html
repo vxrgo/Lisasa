@@ -13,88 +13,99 @@
     <link rel="stylesheet" href="css/flower.css" />
   </head>
   <body>
-    <div id="thankyou"><b>Makasih yaa udah mau jadi pacar aku! 🥰💐</b></div>
+    <header id="thankyou">
+      <h1>Makasih yaa udah mau jadi pacar aku! 🥰💐</h1>
+    </header>
 
-    <!-- Tiket Kencan Kolaboratif -->
-    <div class="ticket-card">
-      <div class="ticket-header">🎟️ OFFICIAL FIRST DATE PASS 🎟️</div>
-      <div class="ticket-row">
-        <span class="ticket-label">📅 Tanggal Kencan:</span>
-        <span class="ticket-value" id="valDate">Memuat...</span>
-      </div>
-      <div class="ticket-row">
-        <span class="ticket-label">🍔 Menu Makanan:</span>
-        <span class="ticket-value" id="valFood">Memuat...</span>
-      </div>
-      <div class="ticket-row">
-        <span class="ticket-label">🍰 Pilihan Dessert:</span>
-        <span class="ticket-value" id="valDessert">Memuat...</span>
-      </div>
-      <div class="ticket-row">
-        <span class="ticket-label">🎡 Aktivitas Seru:</span>
-        <span class="ticket-value" id="valActivities">Memuat...</span>
-      </div>
-      <div class="ticket-footer">
-        <button class="wa-button" onclick="shareToWhatsApp()">
-          Bagikan Rencana Kencan ke WhatsApp 💬
-        </button>
-        <button class="edit-ticket-btn" onclick="location.href='date.html'">
-          ✏️ Ubah Rencana Kencan
-        </button>
-      </div>
-    </div>
-
-    <!-- Animasi Bunga Mekar -->
-    <div class="flower">
-      <div class="f-wrapper">
-        <div class="flower__line"></div>
-        <div class="f">
-          <div class="flower__leaf flower__leaf--1"></div>
-          <div class="flower__leaf flower__leaf--2"></div>
-          <div class="flower__leaf flower__leaf--3"></div>
-          <div class="flower__leaf flower__leaf--4"></div>
-          <div class="flower__leaf flower__leaf--5"></div>
-          <div class="flower__leaf flower__leaf--6"></div>
-          <div class="flower__leaf flower__leaf--7"></div>
-          <div
-            class="flower__leaf flower__leaf--8 flower__fall-down--yellow"
-          ></div>
+    <main class="celebration-container">
+      <!-- Kolom Kiri: Tiket Kencan Kolaboratif -->
+      <section class="ticket-section" aria-label="Tiket Kencan Pertama">
+        <div class="ticket-card">
+          <div class="ticket-header">🎟️ OFFICIAL FIRST DATE PASS 🎟️</div>
+          <div class="ticket-row">
+            <span class="ticket-label">📅 Tanggal Kencan:</span>
+            <span class="ticket-value" id="valDate">Memuat...</span>
+          </div>
+          <div class="ticket-row">
+            <span class="ticket-label">🍔 Menu Makanan:</span>
+            <span class="ticket-value" id="valFood">Memuat...</span>
+          </div>
+          <div class="ticket-row">
+            <span class="ticket-label">🍰 Pilihan Dessert:</span>
+            <span class="ticket-value" id="valDessert">Memuat...</span>
+          </div>
+          <div class="ticket-row">
+            <span class="ticket-label">🎡 Aktivitas Seru:</span>
+            <span class="ticket-value" id="valActivities">Memuat...</span>
+          </div>
+          <div class="ticket-footer">
+            <button class="wa-button" onclick="shareToWhatsApp()">
+              Bagikan Rencana Kencan ke WhatsApp 💬
+            </button>
+            <button class="edit-ticket-btn" onclick="location.href='date.html'">
+              ✏️ Ubah Rencana Kencan
+            </button>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="f-wrapper f-wrapper--2">
-        <div class="flower__line"></div>
-        <div class="f">
-          <div class="flower__leaf flower__leaf--1"></div>
-          <div class="flower__leaf flower__leaf--2"></div>
-          <div class="flower__leaf flower__leaf--3"></div>
-          <div class="flower__leaf flower__leaf--4"></div>
-          <div class="flower__leaf flower__leaf--5"></div>
-          <div class="flower__leaf flower__leaf--6"></div>
-          <div class="flower__leaf flower__leaf--7"></div>
-          <div
-            class="flower__leaf flower__leaf--8 flower__fall-down--pink"
-          ></div>
-        </div>
-      </div>
+      <!-- Kolom Kanan: Animasi Bunga Mekar -->
+      <section class="flower-section" aria-label="Bunga untuk Lisa">
+        <p class="flower-dedication">Bunga ini mekar buat kamu 🌸✨</p>
+        <div class="flower-stage">
+          <div class="flower">
+            <div class="f-wrapper">
+              <div class="flower__line"></div>
+              <div class="f">
+                <div class="flower__leaf flower__leaf--1"></div>
+                <div class="flower__leaf flower__leaf--2"></div>
+                <div class="flower__leaf flower__leaf--3"></div>
+                <div class="flower__leaf flower__leaf--4"></div>
+                <div class="flower__leaf flower__leaf--5"></div>
+                <div class="flower__leaf flower__leaf--6"></div>
+                <div class="flower__leaf flower__leaf--7"></div>
+                <div
+                  class="flower__leaf flower__leaf--8 flower__fall-down--yellow"
+                ></div>
+              </div>
+            </div>
 
-      <div class="f-wrapper f-wrapper--3">
-        <div class="flower__line"></div>
-        <div class="f">
-          <div class="flower__leaf flower__leaf--1"></div>
-          <div class="flower__leaf flower__leaf--2"></div>
-          <div class="flower__leaf flower__leaf--3"></div>
-          <div class="flower__leaf flower__leaf--4"></div>
-          <div class="flower__leaf flower__leaf--5"></div>
-          <div class="flower__leaf flower__leaf--6"></div>
-          <div class="flower__leaf flower__leaf--7"></div>
-          <div
-            class="flower__leaf flower__leaf--8 flower__fall-down--purple"
-          ></div>
+            <div class="f-wrapper f-wrapper--2">
+              <div class="flower__line"></div>
+              <div class="f">
+                <div class="flower__leaf flower__leaf--1"></div>
+                <div class="flower__leaf flower__leaf--2"></div>
+                <div class="flower__leaf flower__leaf--3"></div>
+                <div class="flower__leaf flower__leaf--4"></div>
+                <div class="flower__leaf flower__leaf--5"></div>
+                <div class="flower__leaf flower__leaf--6"></div>
+                <div class="flower__leaf flower__leaf--7"></div>
+                <div
+                  class="flower__leaf flower__leaf--8 flower__fall-down--pink"
+                ></div>
+              </div>
+            </div>
+
+            <div class="f-wrapper f-wrapper--3">
+              <div class="flower__line"></div>
+              <div class="f">
+                <div class="flower__leaf flower__leaf--1"></div>
+                <div class="flower__leaf flower__leaf--2"></div>
+                <div class="flower__leaf flower__leaf--3"></div>
+                <div class="flower__leaf flower__leaf--4"></div>
+                <div class="flower__leaf flower__leaf--5"></div>
+                <div class="flower__leaf flower__leaf--6"></div>
+                <div class="flower__leaf flower__leaf--7"></div>
+                <div
+                  class="flower__leaf flower__leaf--8 flower__fall-down--purple"
+                ></div>
+              </div>
+            </div>
+            <div class="flower__glass"></div>
+          </div>
         </div>
-      </div>
-      <div class="flower__glass"></div>
-    </div>
+      </section>
+    </main>
 
     <script>
       function formatDate(str) {
