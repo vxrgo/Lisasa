@@ -17,13 +17,64 @@
 
     <img id="rizz" src="rizz.gif" alt="rizzler god" class="responsive" />
     <br />
-    <audio controls autoplay loop>
+
+    <!-- Audio Element Hidden -->
+    <audio id="bgm" loop>
       <source src="congratulations.mp3" type="audio/mpeg" />
-      Browser kamu ga mendukung pemutar audio ini.
     </audio>
+
+    <!-- Tombol Musik Estetik -->
+    <button class="music-pill" id="musicBtn" onclick="toggleMusic()">
+      <span id="musicIcon">🎵</span> <span id="musicText">Putar Lagu Perayaan 🎶</span>
+    </button>
+
     <h1>Eits, jangan pergi dulu!</h1>
     <button class="button" onclick="location.href='date.html'">
       Pencet ini dong hehe 👉
     </button>
+
+    <script>
+      var bgm = document.getElementById("bgm");
+      var musicBtn = document.getElementById("musicBtn");
+      var musicIcon = document.getElementById("musicIcon");
+      var musicText = document.getElementById("musicText");
+
+      // Coba autoplay saat halaman dibuka
+      window.addEventListener("DOMContentLoaded", function () {
+        var promise = bgm.play();
+        if (promise !== undefined) {
+          promise
+            .then(function () {
+              setPlayingState(true);
+            })
+            .catch(function () {
+              // Jika autoplay diblokir browser, tombol tetap siap dipencet
+              setPlayingState(false);
+            });
+        }
+      });
+
+      function setPlayingState(isPlaying) {
+        if (isPlaying) {
+          musicBtn.classList.add("playing");
+          musicIcon.innerText = "⏸️";
+          musicText.innerText = "Jeda Musik 🎵";
+        } else {
+          musicBtn.classList.remove("playing");
+          musicIcon.innerText = "▶️";
+          musicText.innerText = "Putar Musik Perayaan 🎶";
+        }
+      }
+
+      function toggleMusic() {
+        if (bgm.paused) {
+          bgm.play();
+          setPlayingState(true);
+        } else {
+          bgm.pause();
+          setPlayingState(false);
+        }
+      }
+    </script>
   </body>
 </html>

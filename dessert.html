@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="css/dessert.css" />
   </head>
   <body>
+    <div class="step-badge">Langkah 3 dari 4: Pilihan Dessert</div>
     <div id="dessertquestion">Pencuci mulutnya mau nyemil apa?</div>
+    <div class="subtitle-hint">🍨 Boleh pilih lebih dari satu yaa! 🍨</div>
 
     <div class="dessert-selection">
       <div class="dessert-item">
@@ -52,11 +54,29 @@
         >
       </div>
     </div>
-    <button class="button" onclick="nextStep()">
-      Lanjut aktivitas seru! 🎡
-    </button>
+
+    <div class="nav-buttons">
+      <button type="button" class="back-button" onclick="location.href='food.html'">
+        ← Ganti Makanan
+      </button>
+      <button class="button" onclick="nextStep()">
+        Lanjut aktivitas seru! 🎡
+      </button>
+    </div>
 
     <script>
+      // Centang ulang pilihan sebelumnya jika ada di localStorage
+      window.addEventListener("DOMContentLoaded", function () {
+        var savedDessert = JSON.parse(localStorage.getItem("kencan_dessert") || "[]");
+        if (Array.isArray(savedDessert)) {
+          document.querySelectorAll('input[name="dessert"]').forEach(function (cb) {
+            if (savedDessert.indexOf(cb.value) !== -1) {
+              cb.checked = true;
+            }
+          });
+        }
+      });
+
       function nextStep() {
         var checked = Array.from(
           document.querySelectorAll('input[name="dessert"]:checked')

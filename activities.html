@@ -13,7 +13,10 @@
     <link rel="stylesheet" href="css/activities.css" />
   </head>
   <body>
+    <div class="step-badge">Langkah 4 dari 4: Aktivitas Seru</div>
     <div id="activityquestion"><b>Abis makan kita mau ngapain aja nih?</b></div>
+    <div class="subtitle-hint">🎡 Bebas pilih semua tempat yang kamu suka! 🎡</div>
+
     <div class="activities-selection">
       <div class="activity-item">
         <img src="activities/aquarium.jpeg" alt="aquarium" />
@@ -76,11 +79,29 @@
         >
       </div>
     </div>
-    <button class="button" id="submitBtn" onclick="submitAndNext()">
-      Buka pesan terakhir ✨
-    </button>
+
+    <div class="nav-buttons">
+      <button type="button" class="back-button" onclick="location.href='dessert.html'">
+        ← Ganti Dessert
+      </button>
+      <button class="button" id="submitBtn" onclick="submitAndNext()">
+        Buka pesan terakhir ✨
+      </button>
+    </div>
 
     <script>
+      // Centang ulang pilihan sebelumnya jika ada di localStorage
+      window.addEventListener("DOMContentLoaded", function () {
+        var savedAct = JSON.parse(localStorage.getItem("kencan_activities") || "[]");
+        if (Array.isArray(savedAct)) {
+          document.querySelectorAll('input[name="activities"]').forEach(function (cb) {
+            if (savedAct.indexOf(cb.value) !== -1) {
+              cb.checked = true;
+            }
+          });
+        }
+      });
+
       var WEBHOOK_URL =
         "https://script.google.com/macros/s/AKfycbwNSrCAQBQLMvWmr0bh7TC6dBA073PkIP7jtaD6F1zaJ5fZNC4L4oqOdpgLZFxixiA/exec";
 

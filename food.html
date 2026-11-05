@@ -13,9 +13,11 @@
     <link rel="stylesheet" href="css/food.css" />
   </head>
   <body>
+    <div class="step-badge">Langkah 2 dari 4: Menu Makanan</div>
     <div id="foodquestion">
       <b>Nanti mau mam apa nih?</b>
     </div>
+    <div class="subtitle-hint">✨ Bebas pilih lebih dari satu yaa! ✨</div>
 
     <div class="food-selection">
       <div class="food-item">
@@ -63,11 +65,29 @@
         <label><input type="checkbox" name="food" value="Sushi" /> Sushi</label>
       </div>
     </div>
-    <button class="button" onclick="nextStep()">
-      Lanjut pilih dessert! 🍰
-    </button>
+
+    <div class="nav-buttons">
+      <button type="button" class="back-button" onclick="location.href='date.html'">
+        ← Ganti Tanggal
+      </button>
+      <button class="button" onclick="nextStep()">
+        Lanjut pilih dessert! 🍰
+      </button>
+    </div>
 
     <script>
+      // Centang ulang pilihan sebelumnya jika ada di localStorage
+      window.addEventListener("DOMContentLoaded", function () {
+        var savedFood = JSON.parse(localStorage.getItem("kencan_food") || "[]");
+        if (Array.isArray(savedFood)) {
+          document.querySelectorAll('input[name="food"]').forEach(function (cb) {
+            if (savedFood.indexOf(cb.value) !== -1) {
+              cb.checked = true;
+            }
+          });
+        }
+      });
+
       function nextStep() {
         var checked = Array.from(
           document.querySelectorAll('input[name="food"]:checked')

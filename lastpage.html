@@ -38,6 +38,9 @@
         <button class="wa-button" onclick="shareToWhatsApp()">
           Bagikan Rencana Kencan ke WhatsApp 💬
         </button>
+        <button class="edit-ticket-btn" onclick="location.href='date.html'">
+          ✏️ Ubah Rencana Kencan
+        </button>
       </div>
     </div>
 
@@ -156,7 +159,7 @@
           "\n\n" +
           "Sampai ketemu nanti yaa sayang! ❤️✨";
 
-        var url = "https://api.whatsapp.com/send?text=" + encodeURIComponent(text);
+        var url = "https://wa.me/?text=" + encodeURIComponent(text);
         window.open(url, "_blank");
       }
     </script>

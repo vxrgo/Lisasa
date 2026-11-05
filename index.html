@@ -15,7 +15,7 @@
   <body>
     <div id="valentineQuestion"><b>lo mau jadi pacar guweh?</b></div>
     <div class="button-container">
-      <button class="answerButton" onclick="location.href='thankyou.html'">
+      <button class="answerButton" id="yesButton" onclick="location.href='thankyou.html'">
         mau
       </button>
       <button class="answerButton" id="noButton">ga dulu</button>
@@ -23,19 +23,36 @@
     <img src="cat.gif" alt="kucing nanya pertanyaan" class="responsive" />
 
     <script>
-      document
-        .getElementById("noButton")
-        .addEventListener("click", function () {
-          var yesButton = document.querySelector(
-            'button[onclick*="thankyou.html"]'
-          );
-          var currentFontSize = parseInt(
-            window.getComputedStyle(yesButton).fontSize
-          );
-          // Naikkan ukuran font tombol mau bertahap
-          yesButton.style.fontSize = Math.min(currentFontSize + 12, 60) + "px";
-          yesButton.style.padding = "16px 32px";
-        });
+      var dialogues = [
+        "ga dulu",
+        "yakin gamau? 🥺",
+        "beneran nih? 😢",
+        "pikir-pikir dulu dong...",
+        "jahat bgt sih 💔",
+        "coba pencet yang mau!",
+        "gabisa nolak wlee 😜",
+        "harus mau pokoknya! 😤"
+      ];
+      var clickCount = 0;
+      var noBtn = document.getElementById("noButton");
+      var yesBtn = document.getElementById("yesButton");
+
+      function handleNo() {
+        clickCount++;
+        var currentFontSize = parseInt(window.getComputedStyle(yesBtn).fontSize) || 18;
+        yesBtn.style.fontSize = Math.min(currentFontSize + 8, 54) + "px";
+        yesBtn.style.padding = "16px 32px";
+
+        var textIndex = Math.min(clickCount, dialogues.length - 1);
+        noBtn.innerText = dialogues[textIndex];
+
+        // Efek menghindar lucu
+        var x = (Math.random() - 0.5) * 60;
+        var y = (Math.random() - 0.5) * 30;
+        noBtn.style.transform = "translate(" + x + "px, " + y + "px)";
+      }
+
+      noBtn.addEventListener("click", handleNo);
     </script>
   </body>
 </html>

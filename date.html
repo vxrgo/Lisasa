@@ -13,21 +13,38 @@
     <link rel="stylesheet" href="css/date.css" />
   </head>
   <body>
+    <div class="step-badge">Langkah 1 dari 4: Tanggal Kencan</div>
     <h1 title="pilih tanggal">Kira-kira kapan kamu bisa jalan?</h1>
     <form class="form-group" id="dateForm">
       <label>Mau hari apa nih: (pilih tanggal yaa)</label>
       <div class="date-input-wrapper">
         <input type="date" id="dateInput" required />
-        <button class="button" type="submit">
-          Gass! 🚀
-        </button>
+        <div class="nav-buttons">
+          <button type="button" class="back-button" onclick="location.href='thankyou.html'">
+            ← Kembali
+          </button>
+          <button class="button" type="submit">
+            Gass! 🚀
+          </button>
+        </div>
       </div>
     </form>
 
     <script>
+      var dateInput = document.getElementById("dateInput");
+      // Batasi tanggal minimal ke hari ini
+      var today = new Date().toISOString().split("T")[0];
+      dateInput.min = today;
+
+      // Ambil tanggal sebelumnya jika sudah pernah dipilih
+      var savedDate = localStorage.getItem("kencan_date");
+      if (savedDate && savedDate >= today) {
+        dateInput.value = savedDate;
+      }
+
       document.getElementById("dateForm").addEventListener("submit", function (e) {
         e.preventDefault();
-        var dateVal = document.getElementById("dateInput").value;
+        var dateVal = dateInput.value;
         if (dateVal) {
           localStorage.setItem("kencan_date", dateVal);
           window.location.href = "food.html";
